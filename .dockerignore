@@ -1,0 +1,17 @@
+# .dockerignore
+node_modules
+dist
+build
+.git
+.github
+.env
+.env.local
+.DS_Store
+npm-debug.log*
+*.log
+coverage
+README.md
+LICENSE
+CONTRIBUTING.md
+CODE_OF_CONDUCT.md
+SECURITY.md

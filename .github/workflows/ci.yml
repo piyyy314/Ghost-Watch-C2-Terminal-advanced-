@@ -1,0 +1,38 @@
+name: Ghost-Watch C2 CI
+
+on:
+  push:
+    branches: [ "main", "master", "develop" ]
+  pull_request:
+    branches: [ "main", "master", "develop" ]
+
+jobs:
+  build-and-verify:
+    name: Lint & Build Verification
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Run TypeScript Linter & Typecheck
+        run: npm run lint
+
+      - name: Compile and Bundle Production Assets
+        run: npm run build
+
+      - name: Verify Server Output Bundle Exists
+        run: test -f dist/server.cjs

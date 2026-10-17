@@ -1,0 +1,6 @@
+{
+  "name": "Ghost-Watch C2 Terminal",
+  "description": "Integrated Systems Architecture and C2 dashboard for Ghost-Watch Apex Tier Operations, Advanced Canary Trap Ecosystem (ACTS), Israeli Aegis active defense simulations, and quantum-safe cryptography.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
